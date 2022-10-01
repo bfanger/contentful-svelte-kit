@@ -2,9 +2,14 @@
   import type { LayoutData } from "./$types";
 
   export let data: LayoutData;
-  console.log(data);
 </script>
 
+<svelte:head>
+  <title>{data.title}</title>
+  {#if data.description}
+    <meta name="description" content={data.description} />
+  {/if}
+</svelte:head>
 <slot />
 <pre>{JSON.stringify(data, null, 2)}</pre>
 

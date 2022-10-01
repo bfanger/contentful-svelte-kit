@@ -11,6 +11,7 @@
     "lint:svelte-check": "svelte-check --fail-on-warnings --fail-on-hints --ignore build,package",
     "lint:tsc": "tsc --noEmit",
     "lint:eslint": "eslint --ext=js,ts,svelte --max-warnings=0 src",
+    "generate-contentful-types": "node ./src/generate-contentful-types.js",
     "format": "prettier --write . && eslint --ext=js,ts,svelte --fix src",
     "prepare": "husky install"
   },
@@ -32,10 +33,13 @@
   "devDependencies": {
     "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
+    "@types/prettier": "^2.7.1",
+    "@types/rimraf": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
+    "cf-content-types-generator": "^2.2.2",
     "concurrently": "^7.2.1",
-    "contentful": "^9.2.5",
+    "contentful": "^10.0.0-beta-v10.8",
     "eslint": "^8.16.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
