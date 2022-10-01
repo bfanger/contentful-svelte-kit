@@ -1,0 +1,65 @@
+{
+  "name": "svelte-project-template",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "concurrently -c \"#c596c7\",\"#676778\",\"#3074c0\",\"#7c7cea\" --kill-others-on-fail \"npm:lint:*\"",
+    "lint:prettier": "prettier --check --loglevel=warn \"src/**/*.svelte\"",
+    "lint:svelte-check": "svelte-check --fail-on-warnings --fail-on-hints --ignore build,package",
+    "lint:tsc": "tsc --noEmit",
+    "lint:eslint": "eslint --ext=js,ts,svelte --max-warnings=0 src",
+    "format": "prettier --write . && eslint --ext=js,ts,svelte --fix src",
+    "prepare": "husky install"
+  },
+  "prettier": "eslint-config-triple/.prettierrc",
+  "lint-staged": {
+    "*.ts": [
+      "eslint --max-warnings 0 --no-ignore",
+      "sh -c 'tsc -p tsconfig.json --noEmit'"
+    ],
+    "*.(c)?js": [
+      "eslint --max-warnings 0 --no-ignore"
+    ],
+    "*.svelte": [
+      "eslint --max-warnings 0 --no-ignore",
+      "svelte-check --fail-on-warnings --fail-on-hints",
+      "prettier --check"
+    ]
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "next",
+    "@sveltejs/kit": "next",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "concurrently": "^7.2.1",
+    "contentful": "^9.2.5",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-triple": "^0.5.1",
+    "eslint-import-resolver-typescript": "^3.2.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-only-warn": "^1.0.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.0",
+    "postcss": "^8.4.14",
+    "postcss-preset-env": "^7.8.2",
+    "prettier": "^2.6.2",
+    "prettier-plugin-svelte": "^2.7.0",
+    "sass": "^1.52.2",
+    "svelte": "^3.48.0",
+    "svelte-check": "^2.7.2",
+    "svelte-preprocess": "^4.10.6",
+    "typescript": "^4.7.2",
+    "vite": "^3.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0"
+  }
+}
